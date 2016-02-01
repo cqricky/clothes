@@ -1,0 +1,98 @@
+<#include "../layout/layout.html">
+<@layout ; section>
+	<#if section = "script"> 
+	<script type="text/javascript">
+	<!--
+	$(document).ready(function () {
+		$("#btnSave").click(function(){
+			$.ajax({
+			      "url": "/languages/${language.id}",
+			      "type": "patch",
+			      "data": $('#languageForm').serialize(),
+			      "dataType": "json",
+			      "success": function(data) {
+			    	  bootbox.alert('Hi Apple!', function(){
+			                //alert('Hi Orange!');
+			            });
+			        if(data.status === 0) {
+			        	bootbox.alert('Hi Apple!', function(){
+			                //alert('Hi Orange!');
+			            });
+			        } else if (data.status === -1) {
+			        	
+			        }
+			      },
+			      "error": function(data) {
+			        if(JSON.stringify(data).indexOf('Log in') > -1) {
+			          var currentUrl = window.document.location.href;
+			          var pathName = window.document.location.pathname;
+			          var baseUrl;
+			          if(pathName === '/') {
+			            baseUrl = currentUrl;
+			          } else {
+			            baseUrl = currentUrl.slice(0, currentUrl.indexOf(pathName)) + '/';
+			          }
+			          window.location.href = baseUrl + 'admins/login';
+			        } else {
+			          bootbox.alert('系统错误!', function(){
+			                //alert('系统错误!');
+		            	});
+			        }
+			      }
+			    });
+		});
+	});
+	//-->
+	</script>
+  	<#elseif section = "content" > 
+		<div class="row">
+		  <div class="col-lg-12">
+		    <h1 class="page-header">更新语言</h1>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-lg-12">
+		    <div class="panel panel-default">
+		      <div class="panel-heading">更新说明：</div>
+		      <div class="panel-body">
+		        <div class="row">
+		          <div class="col-lg-12">
+		            <form id="languageForm" action="/languages/${language.id}" class="form-signin form-horizontal"  method="post">
+		              <div class="form-group">
+		                <label for="name" class="control-label col-sm-2"><strong>语言名称</strong></label>
+		                <div class="col-sm-10">
+		                  <input id="name" name="name" type="text" placeholder="请输入语言名称" required="required" autofocus="autofocus" class="form-control" value="${language.name}"/>
+		                </div>
+		              </div>
+		              <div class="form-group">
+		                <label for="alias" class="control-label col-sm-2"><strong>语言别名</strong></label>
+		                <div class="col-sm-10">
+		                  <input id="alias" name="alias" type="text" placeholder="请输入语言别名" required="required" autofocus="autofocus" class="form-control" value="${language.alias}"/>
+		                </div>
+		              </div>
+		              <div class="form-group">
+		                <label for="contentUrl" class="control-label col-sm-2"><strong>子任务内容url</strong></label>
+		                <div class="col-sm-10">
+		                  <input id="contentUrl" name="contentUrl" type="text" placeholder="请输入子任务内容url" required="required" autofocus="autofocus" class="form-control" value="${language.contentUrl}"/>
+		                </div>
+		              </div>
+		              <div class="form-group">
+		                <label for="supportTaskLevel" class="control-label col-sm-2"><strong>是否支持难度等级</strong></label>
+		                <div class="col-sm-10">
+		                  <input id="supportTaskLevel" name="supportTaskLevel" type="checkbox" value="1" checked/>
+		                </div>
+		              </div>
+		              
+		              <div class="form-actions pull-right">
+		                <button type="submit" class="btn btn-default btn-create" id="btnSave">保存</button> 
+		                <a href="/languages" role="button" class="btn btn-default btn-warning">取消</a>
+		              </div>
+		            </form>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</#if> 
+</@layout>

@@ -2,6 +2,8 @@ package com.ricky.clothes.mapper;
 
 import com.ricky.clothes.model.Clothes;
 
+import java.util.List;
+
 public interface ClothesMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -10,6 +12,8 @@ public interface ClothesMapper {
     int insertSelective(Clothes record);
 
     Clothes selectByPrimaryKey(Integer id);
+
+    List<Clothes> selectAll();
 
     int updateByPrimaryKeySelective(Clothes record);
 

@@ -1,0 +1,73 @@
+<!-- Navigation-->
+<nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+  <div class="navbar-header">
+    <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+    	<span class="sr-only">Toggle navigation</span>
+    	<span class="icon-bar"></span>
+    	<span class="icon-bar"></span>
+    	<span class="icon-bar"></span>
+    </button>
+    <a href="/index" class="navbar-brand">大沪江 3.0 TMS</a>
+  </div>
+  <!-- /.navbar-header-->
+  <ul class="nav navbar-top-links navbar-right">
+    <li class="dropdown">
+    	<a data-toggle="dropdown" href="#" class="dropdown-toggle"> 当前语言:${currentLanguage.name}
+	    	<i class="fa fa-caret-down"></i>
+    	</a>
+		<ul class="dropdown-menu">
+			<#list languages as language>
+ 		      <li><a href="/admins/language" id="languageSelect" disabled="true" style="cursor:pointer"> ${language.name}</a></li>
+		    </#list>
+		</ul>
+    </li>
+    <!-- /.dropdown-->
+    <li class="dropdown">
+    	<a data-toggle="dropdown" href="#" class="dropdown-toggle">${login_admin_user.email}
+	    	<i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
+    	</a>
+		<ul class="dropdown-menu dropdown-user">
+			<li><a href="/admins/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+		</ul>
+	    <!-- /.dropdown-user-->
+    </li>
+    <!-- /.dropdown-->
+  </ul>
+  <!-- /.navbar-top-links-->
+  <div role="navigation" class="navbar-default sidebar">
+    <div class="sidebar-nav navbar-collapse">
+      <ul id="side-menu" class="nav">
+        <li class="sidebar-search">
+          <div class="input-group custom-search-form">
+            <input type="text" placeholder="Search..." class="form-control"/><span class="input-group-btn">
+              <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button></span>
+          </div>
+          <!-- /input-group-->
+        </li>
+        <li><a href="/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+        <li><a href="/tasks"><i class="fa fa-dashboard fa-fw"></i> 任务管理</a></li>
+        <li><a href="/subtasks"><i class="fa fa-bar-chart-o fa-fw"></i> 子任务管理</a>
+          <!--ul.nav.nav-second-level
+          li
+            a(href='/listenings') 听力
+          li
+            a(href='/readings') 阅读
+          -->
+          <!-- /.nav-second-level-->
+        </li>
+        <li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 系统管理<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li><a href="/categories">分类管理</a></li>
+            <li><a href="/hobbies">兴趣管理</a></li>
+            <li><a href="/types">任务形式管理</a></li>
+            <!-- <li><a href="/subtask_types">子任务形式管理</a></li> -->
+            <li><a href="/levels">难度管理</a></li>
+            <!-- /.nav-second-level-->
+          </ul>
+        </li>
+        <!-- <li><a href="/discovery"><i class="fa fa-dashboard fa-fw"></i> 发现页管理</a></li> -->
+        <li><a href="/languages"><i class="fa fa-dashboard fa-fw"></i>  语言管理</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
