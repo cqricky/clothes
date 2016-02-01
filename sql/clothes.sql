@@ -11,7 +11,7 @@
  Target Server Version : 50628
  File Encoding         : utf-8
 
- Date: 01/15/2016 17:32:49 PM
+ Date: 02/01/2016 15:52:36 PM
 */
 
 SET NAMES utf8;
@@ -25,6 +25,11 @@ CREATE TABLE `clothes` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `type_id` int(11) DEFAULT NULL,
+  `image_name` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -46,6 +51,7 @@ DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -57,6 +63,7 @@ CREATE TABLE `type` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `code` varchar(255) DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -68,6 +75,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
