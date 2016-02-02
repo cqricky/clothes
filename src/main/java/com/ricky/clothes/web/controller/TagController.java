@@ -14,7 +14,7 @@ import java.util.List;
  * Created by caiqing on 16/2/1.
  */
 @Controller
-@RequestMapping("/class")
+@RequestMapping("/tags")
 public class TagController extends BaseAppController {
     TagService tagService;
 
@@ -23,7 +23,7 @@ public class TagController extends BaseAppController {
         List<Tag> tags = tagService.selectTag();
         model.addAttribute("tags", tags);
 
-        return "class/index";
+        return "tag/index";
 
     }
 

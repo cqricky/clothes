@@ -13,8 +13,6 @@ public interface ClothesMapper {
 
     Clothes selectByPrimaryKey(Integer id);
 
-    List<Clothes> selectAll();
-
     int updateByPrimaryKeySelective(Clothes record);
 
     int updateByPrimaryKey(Clothes record);
