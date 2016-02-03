@@ -2,8 +2,6 @@ package com.ricky.clothes.mapper;
 
 import com.ricky.clothes.model.Clothes;
 
-import java.util.List;
-
 public interface ClothesMapper {
     int deleteByPrimaryKey(Integer id);
 
