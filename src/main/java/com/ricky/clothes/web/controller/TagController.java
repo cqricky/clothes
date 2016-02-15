@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,9 +26,17 @@ public class TagController extends BaseAppController {
     public String selectAll(HttpServletRequest req, HttpServletResponse res, Model model) {
         List<Tag> tags = tagService.selectTag();
         model.addAttribute("tags", tags);
-
-        return "tag/index";
+        throw  new NullPointerException();
+        //return "tag/index";
     }
 
 
+    @RequestMapping(value = "/tag", method = RequestMethod.GET)
+    public ModelAndView selectAllTag(HttpServletRequest req, HttpServletResponse res) {
+        List<Tag> tags = tagService.selectTag();
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("tags", tags);
+        mv.setViewName("tag/index");
+        return mv;
+    }
 }

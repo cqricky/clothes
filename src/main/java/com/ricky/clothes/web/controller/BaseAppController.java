@@ -16,18 +16,19 @@ public class BaseAppController extends BaseController {
      *
      * @return
      */
-    @ExceptionHandler({ Exception.class })
-    @ResponseBody
-    public Result<String> exception(Exception e) {
+    @ExceptionHandler({ ArrayIndexOutOfBoundsException.class })
+//    @ResponseBody
+    public String exception(ArrayIndexOutOfBoundsException e) {
         logger.warn("got a Exception",e);
 
         int status = HttpStatus.INTERNAL_SERVER_ERROR.value();
-        String message = e.getMessage();
+//        String message = e.getMessage();
 
-        if (e instanceof CommonException){
-            status = ((CommonException) e).getCode();
-        }
+//        if (e instanceof CommonException){
+//            status = ((CommonException) e).getCode();
+//        }
 
-        return new ResultBuilder<String>().status(status).message(message).build();
+//        return new ResultBuilder<String>().status(status).message(message).build();
+        return "index";
     }
 }
