@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @EnableAutoConfiguration
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-@Import({DataSourceConfig.class})
+@Import({DataSourceConfig.class, WebConfig.class})
 @ComponentScan("com.ricky.clothes")
 public class AppConfig {
 
