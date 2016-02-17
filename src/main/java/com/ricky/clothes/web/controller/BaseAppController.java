@@ -16,9 +16,9 @@ public class BaseAppController extends BaseController {
      *
      * @return
      */
-    @ExceptionHandler({ ArrayIndexOutOfBoundsException.class })
+    @ExceptionHandler({ Exception.class })
 //    @ResponseBody
-    public String exception(ArrayIndexOutOfBoundsException e) {
+    public String exception(Exception e) {
         logger.warn("got a Exception",e);
 
         int status = HttpStatus.INTERNAL_SERVER_ERROR.value();
@@ -29,6 +29,6 @@ public class BaseAppController extends BaseController {
 //        }
 
 //        return new ResultBuilder<String>().status(status).message(message).build();
-        return "index";
+        return "error";
     }
 }
