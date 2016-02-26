@@ -11,7 +11,7 @@
  Target Server Version : 50628
  File Encoding         : utf-8
 
- Date: 02/01/2016 15:52:36 PM
+ Date: 02/26/2016 15:22:43 PM
 */
 
 SET NAMES utf8;
@@ -76,6 +76,7 @@ CREATE TABLE `user` (
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -26,8 +26,8 @@ public class TagController extends BaseAppController {
     public String selectAll(HttpServletRequest req, HttpServletResponse res, Model model) {
         List<Tag> tags = tagService.selectTag();
         model.addAttribute("tags", tags);
-        throw  new NullPointerException();
-        //return "tag/index";
+//        throw  new NullPointerException();
+        return "tag/index";
     }
 
 

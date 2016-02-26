@@ -19,7 +19,7 @@ public class BaseAppController extends BaseController {
     @ExceptionHandler({ Exception.class })
 //    @ResponseBody
     public String exception(Exception e) {
-        logger.warn("got a Exception",e);
+        logger.debug("got a Exception",e);
 
         int status = HttpStatus.INTERNAL_SERVER_ERROR.value();
 //        String message = e.getMessage();
@@ -32,3 +32,5 @@ public class BaseAppController extends BaseController {
         return "error";
     }
 }
+
+
