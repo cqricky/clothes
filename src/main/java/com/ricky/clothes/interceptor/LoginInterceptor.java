@@ -4,6 +4,7 @@ import com.ricky.clothes.constant.GlobalConstant;
 import com.ricky.clothes.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -19,13 +20,19 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
     private Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
+
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.debug("start login interceptor ....");
         logger.debug("interceptor url: " + request.getRequestURL());
         String requestUrl = request.getRequestURL().toString();
+        logger.debug("getStatus: " + response.getStatus());
 
-        if(requestUrl.contains("/admin/login") || requestUrl.contains("/templates/login.html") || requestUrl.contains("/error")) {
+        if(response.getStatus() == HttpStatus.NOT_FOUND.value() && !requestUrl.contains("/404")) {
+            request.getRequestDispatcher("/404").forward(request, response);
+            return false;
+        } else if(requestUrl.contains("/admin/login") || requestUrl.contains("/templates/login.html") || requestUrl.contains("/error") || requestUrl.contains("/404")) {
             return true;
         } else {
             HttpSession session = request.getSession();

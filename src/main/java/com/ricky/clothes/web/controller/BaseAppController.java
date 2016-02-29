@@ -5,6 +5,8 @@ import com.hujiang.rocky.common.model.Result;
 import com.hujiang.rocky.common.model.ResultBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hujiang.rocky.web.controller.BaseController;
@@ -31,6 +33,13 @@ public class BaseAppController extends BaseController {
 //        return new ResultBuilder<String>().status(status).message(message).build();
         return "error";
     }
+
+    @RequestMapping(value = "/404", method = RequestMethod.GET)
+    public String notFound(){
+        return "404";
+    }
+
+
 }
 
 
