@@ -19,4 +19,16 @@ public class TagService {
         return tagMapper.selectAll();
     }
 
+    public Tag selectTagById(Integer tagId) {
+        return tagMapper.selectByPrimaryKey(tagId);
+    }
+
+    public int create(Tag tag) {
+        return tagMapper.insert(tag);
+    }
+
+    public int update(Tag tag) {
+        return tagMapper.updateByPrimaryKeySelective(tag);
+    }
+
 }

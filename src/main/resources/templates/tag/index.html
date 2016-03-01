@@ -9,7 +9,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="pull-right"><a href="/tag/new" role="button" class="btn btn-sm btn-primary btn-shadow">新建</a></div>
+                    <div class="pull-right"><a href="/tags/new" role="button" class="btn btn-sm btn-primary btn-shadow">新建</a></div>
                 </div>
             </div><br/>
             <div class="row">
@@ -34,11 +34,12 @@
                                                     <tr calss="odd gradeX">
                                         </#if>
                                         <td>${tag.id}</td>
-                                        <td>${tag.name}</td>
+                                        <#--<td>${tag.name}</td>-->
+                                            <td>${tag.name!}</td>
                                         <td>
-                                           <a href="/tag/${tag.id}">修改</a>
+                                           <a href="/tags/edit/${tag.id}">修改</a>
                                             &nbsp; | &nbsp;
-                                            <a href="/tag/${tag.id}">删除</a>
+                                            <a href="/tags/${tag.id}">删除</a>
                                         </td>
                                         </tr>
                                     </#list>
