@@ -1,5 +1,7 @@
 package com.ricky.clothes.model;
 
+import com.ricky.clothes.constant.EnumLocation;
+
 import java.util.Date;
 
 public class Clothes {
@@ -11,7 +13,7 @@ public class Clothes {
 
     private String imageName;
 
-    private String location;
+    private EnumLocation location;
 
     private Integer userId;
 
@@ -51,11 +53,11 @@ public class Clothes {
         this.imageName = imageName;
     }
 
-    public String getLocation() {
+    public EnumLocation getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(EnumLocation location) {
         this.location = location;
     }
 
