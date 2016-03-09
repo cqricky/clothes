@@ -20,6 +20,11 @@
     from clothes
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT 
+      <include refid="Base_Column_List" />
+    FROM clothes
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from clothes
     where id = #{id,jdbcType=INTEGER}
