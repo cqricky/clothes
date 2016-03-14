@@ -3,6 +3,7 @@ package com.ricky.clothes.model;
 import com.ricky.clothes.constant.EnumLocation;
 
 import java.util.Date;
+import java.util.List;
 
 public class Clothes {
     private Integer id;
@@ -20,6 +21,36 @@ public class Clothes {
     private Date createAt;
 
     private Date updateAt;
+
+    private Type type;
+
+    private User user;
+
+    private List<Tag> tags;
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
 
     public Integer getId() {
         return id;

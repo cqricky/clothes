@@ -18,4 +18,8 @@ public class ClothesService {
     public List<Clothes> selectClothes () {
         return clothesMapper.selectAll();
     }
+
+    public List<Clothes> selectAllWithTag() {
+        return clothesMapper.selectAllWithTag();
+    }
 }

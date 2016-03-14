@@ -7,9 +7,11 @@
     <result column="type_id" property="typeId" jdbcType="INTEGER" />
     <result column="image_name" property="imageName" jdbcType="VARCHAR" />
     <result column="location" property="location" jdbcType="INTEGER" typeHandler="com.ricky.clothes.utils.EnumLocationHandler"/>
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="users_id" property="userId" jdbcType="INTEGER" />
     <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
     <result column="update_at" property="updateAt" jdbcType="TIMESTAMP" />
+    <association property="type" column="type_id" select="com.ricky.clothes.mapper.TypeMapper.selectByPrimaryKey" javaType="com.ricky.clothes.model.Type"/>
+    <association property="user" column="user_id" select="com.ricky.clothes.mapper.UserMapper.selectByPrimaryKey" javaType="com.ricky.clothes.model.User"/>
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, type_id, image_name, location, user_id, create_at, update_at
@@ -24,6 +26,21 @@
     SELECT 
       <include refid="Base_Column_List" />
     FROM clothes
+  </select>
+
+  <resultMap id="BaseResultMapWithTag" type="com.ricky.clothes.model.Clothes" extends="BaseResultMap">
+    <collection property="tags" ofType="com.ricky.clothes.model.Tag">
+      <id column="tagId" property="id" jdbcType="INTEGER" />
+      <result column="tagName" property="name" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+
+  <select id="selectAllWithTag" resultMap="BaseResultMapWithTag">
+    SELECT
+      c.id, c.name, c.type_id, c.image_name, c.location, c.user_id, c.create_at, c.update_at,
+      t.id AS tagId, t.name AS tagName
+    FROM
+     clothes c LEFT JOIN clothes_tag ct ON c.id = ct.clothes_id LEFT JOIN tag t on ct.tag_id = t.id
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from clothes

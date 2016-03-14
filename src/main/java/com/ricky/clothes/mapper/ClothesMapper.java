@@ -11,6 +11,8 @@ public interface ClothesMapper {
 
     List<Clothes> selectAll();
 
+    List<Clothes> selectAllWithTag();
+
     int insertSelective(Clothes record);
 
     Clothes selectByPrimaryKey(Integer id);
