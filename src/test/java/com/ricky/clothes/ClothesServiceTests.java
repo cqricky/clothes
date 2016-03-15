@@ -19,9 +19,10 @@ public class ClothesServiceTests extends ApplicationTests {
     public void testSelectClothes() {
 //        List<Clothes> clothes = clothesService.selectClothes();
 
-        List<Clothes> clothes = clothesService.selectAllWithTag();
+//        List<Clothes> clothes = clothesService.selectAllWithTag();
 
-        Assert.assertNotNull(clothes);
+        clothesService.saveClothes();
+//        Assert.assertNotNull(clothes);
     }
 
 
