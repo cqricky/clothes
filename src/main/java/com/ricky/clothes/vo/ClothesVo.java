@@ -1,4 +1,4 @@
-package com.ricky.clothes.model;
+package com.ricky.clothes.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ricky.clothes.constant.EnumLocation;
@@ -6,52 +6,27 @@ import com.ricky.clothes.constant.EnumLocation;
 import java.util.Date;
 import java.util.List;
 
-public class Clothes {
+/**
+ * Created by caiqing on 16/3/16.
+ */
+public class ClothesVo {
     private Integer id;
 
     private String name;
-
-    private Integer typeId;
 
     private String imageName;
 
     private EnumLocation location;
 
-    private Integer userId;
-
     private Date createAt;
 
     private Date updateAt;
 
-    private Type type;
+    private TypeVo type;
 
-    private User user;
+    private UserVo user;
 
-    private List<Tag> tags;
-
-    public List<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
+    private List<TagVo> tags;
 
     public Integer getId() {
         return id;
@@ -67,14 +42,6 @@ public class Clothes {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
     }
 
     public String getImageName() {
@@ -93,14 +60,6 @@ public class Clothes {
         this.location = location;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
     public Date getCreateAt() {
         return createAt;
     }
@@ -115,5 +74,29 @@ public class Clothes {
 
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
+    }
+
+    public TypeVo getType() {
+        return type;
+    }
+
+    public void setType(TypeVo type) {
+        this.type = type;
+    }
+
+    public UserVo getUser() {
+        return user;
+    }
+
+    public void setUser(UserVo user) {
+        this.user = user;
+    }
+
+    public List<TagVo> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<TagVo> tags) {
+        this.tags = tags;
     }
 }

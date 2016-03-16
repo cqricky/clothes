@@ -32,7 +32,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         if(response.getStatus() == HttpStatus.NOT_FOUND.value() && !requestUrl.contains("/404")) {
             request.getRequestDispatcher("/404").forward(request, response);
             return false;
-        } else if(requestUrl.contains("/admin/login") || requestUrl.contains("/templates/login.html") || requestUrl.contains("/error") || requestUrl.contains("/404")) {
+        } else if(requestUrl.contains("/admin/login") || requestUrl.contains("/templates/login.html") || requestUrl.contains("/error") || requestUrl.contains("/404") || requestUrl.contains("/clothesApi")) {
             return true;
         } else {
             HttpSession session = request.getSession();

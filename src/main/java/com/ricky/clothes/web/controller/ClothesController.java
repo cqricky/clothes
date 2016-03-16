@@ -24,6 +24,7 @@ public class ClothesController extends BaseAppController {
         List<Clothes> clothes = clothesService.selectClothes();
 
 
+
         return "";
     }
 }

@@ -51,7 +51,7 @@
       image_name, location, user_id, 
       create_at, update_at)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
-      #{imageName,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{imageName,jdbcType=VARCHAR}, #{location,jdbcType=INTEGER, typeHandler=com.ricky.clothes.utils.EnumLocationHandler}, #{userId,jdbcType=INTEGER},
       #{createAt,jdbcType=TIMESTAMP}, #{updateAt,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.ricky.clothes.model.Clothes" >

@@ -40,13 +40,13 @@ public class ClothesService {
         typeMapper.insert(type);
 
         if(true){
-            throw new NullPointerException();
+//            throw new NullPointerException();
         }
 
         Clothes clothes = new Clothes();
         clothes.setName("test2");
         clothes.setImageName("testimagename2");
-//        clothes.setLocation(EnumLocation.KAIKAI);
+        clothes.setLocation(EnumLocation.KAIKAI);
 
         clothesMapper.insert(clothes);
 
