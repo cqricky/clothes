@@ -28,6 +28,16 @@ public class ClothesVo {
 
     private List<TagVo> tags;
 
+    private String tag;
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
     public Integer getId() {
         return id;
     }

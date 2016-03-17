@@ -2,6 +2,7 @@ package com.ricky.clothes.web.controller;
 
 import com.ricky.clothes.model.Clothes;
 import com.ricky.clothes.service.ClothesService;
+import com.ricky.clothes.vo.ClothesVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,5 +32,13 @@ public class ClothesController extends BaseAppController {
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newPage(){
         return "clothes/new";
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String saveClothes(ClothesVo input) {
+
+        ClothesVo clothes = input;
+
+        return "clothes/index";
     }
 }
