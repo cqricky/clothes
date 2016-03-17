@@ -4,6 +4,7 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+
 body {
     background-color: #f8f8f8;
 }
@@ -351,4 +352,43 @@ table.dataTable thead .sorting:after {
 
 .panel-yellow a:hover {
     color: #df8a13;
+}
+
+/*以下是自己修改的*/
+.content-wrapper {
+    padding-top: 20px;
+}
+.form-actions {
+    padding: 17px 20px 18px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    background-color: whitesmoke;
+    border-top: 1px solid #e5e5e5
+}
+
+@media (min-width: 768px) {
+    .form-actions {
+        padding-left:17%
+    }
+}
+
+.btn-create {
+    color: #ffffff;
+    background-color: #446e9b;
+    border-color: #446e9b;
+}
+/*.btn-create:hover {
+        color: white;
+    background-color: #01654e;
+    border-color: #004233
+}*/
+
+th {
+    font-weight: normal;
+}
+.table>thead>tr>th{
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+.table tr td {
+    border-color: #F1F1F1 !important;
 }

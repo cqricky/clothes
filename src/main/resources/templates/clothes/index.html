@@ -9,7 +9,7 @@
 		</div>
 		<div class="row">
 		  <div class="col-lg-12">
-		    <div class="pull-right"><a href="/types/new" role="button" class="btn btn-sm btn-primary btn-shadow">新建</a></div>
+		    <div class="pull-right"><a href="/clothes/new" role="button" class="btn btn-sm btn-primary btn-shadow">新建</a></div>
 		  </div>
 		</div><br/>
 		<div class="row">
@@ -27,20 +27,25 @@
 		              </tr>
 		            </thead>
 		            <tbody>
-		            	<#list types as type>
-		            		<#if type_index % 2 == 0>
-		            		<tr calss="even gradeX">
-		            		<#else>
-		            		<tr calss="odd gradeX">	
+		            	<#list clothes as cloth>
+		            		<#if cloth_index % 2 == 0>
+							<tr calss="even gradeX">
+							<#else>
+		            		<tr calss="odd gradeX">
 		            		</#if>
-		            			<td>${type.id}</td>
-		            			<td>${type.name!}</td>
+		            			<td>${cloth.id}</td>
+		            			<td>${cloth.name!}</td>
+								<!--<td>-->
+									<!--<#list cloth.tags as tag>-->
+										<!--${tag.name}&nbsp;-->
+									<!--</#list>-->
+								<!--</td>-->
 		            			<td>
-		            				<a href="/types/${type.id}">修改</a>
+		            				<a href="/clothes/${cloth.id}">修改</a>
 		            				&nbsp; | &nbsp; 
-		            				<a href="/types/${type.id}">删除</a>
+		            				<a href="/clothes/${cloth.id}">删除</a>
 		            			</td>
-			 		      </tr>
+			 		      	</tr>
 					    </#list>
 		            </tbody>
 		          </table>

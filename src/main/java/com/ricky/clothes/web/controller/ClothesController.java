@@ -21,10 +21,15 @@ public class ClothesController extends BaseAppController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String selectAll ( Model model){
-        List<Clothes> clothes = clothesService.selectClothes();
+        List<Clothes> clothes = clothesService.selectAllWithTag();
 
+        model.addAttribute("clothes", clothes);
 
+        return "clothes/index";
+    }
 
-        return "";
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String newPage(){
+        return "clothes/new";
     }
 }
